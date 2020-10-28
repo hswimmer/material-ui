@@ -149,7 +149,7 @@ const TablePagination = React.forwardRef(function TablePagination(props, ref) {
         <Typography color="inherit" variant="body2" className={classes.caption}>
           {labelDisplayedRows({
             from: count === 0 ? 0 : page * rowsPerPage + 1,
-            to: count !== -1 ? Math.min(count, (page + 1) * rowsPerPage) : (page + 1) * rowsPerPage,
+            to: count !== -1 ? (rowsPerPage === -1 ? count : Math.min(count, (page + 1) * rowsPerPage)) : (page + 1) * rowsPerPage,
             count: count === -1 ? -1 : count,
             page,
           })}
